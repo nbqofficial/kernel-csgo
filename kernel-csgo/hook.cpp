@@ -21,5 +21,7 @@ bool hook::init_hook(void* kernel_address)
 
 	helper::wpm_safe(function, &original_fn, sizeof(original_fn));
 
+	free(original_fn);
+	
 	return true;
 }
