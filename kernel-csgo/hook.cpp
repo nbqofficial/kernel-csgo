@@ -10,8 +10,8 @@ bool hook::init_hook(void* kernel_address)
 	unsigned char mov_rax[] = { 0x48, 0xB8 };
 	unsigned char jmp_rax[] = { 0xFF, 0xE0 };
 
-	unsigned char* original_fn = (unsigned char*)malloc(0xC);
-	
+	unsigned char original_fn[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
 	RtlSecureZeroMemory(&original_fn, sizeof(original_fn));
 	memcpy((void*)((ULONG_PTR)original_fn), &mov_rax, sizeof(mov_rax));
 
@@ -20,8 +20,6 @@ bool hook::init_hook(void* kernel_address)
 	memcpy((void*)((ULONG_PTR)original_fn + sizeof(mov_rax) + sizeof(void*)), &jmp_rax, sizeof(jmp_rax));
 
 	helper::wpm_safe(function, &original_fn, sizeof(original_fn));
-
-	free(original_fn);
 	
 	return true;
 }
