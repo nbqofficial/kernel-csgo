@@ -10,7 +10,6 @@
 typedef struct _INFO_STRUCT
 {
 	ULONG code;
-	void* request_address;
 	ULONG process_id;
 	ULONG client_base;
 	ULONG address;
