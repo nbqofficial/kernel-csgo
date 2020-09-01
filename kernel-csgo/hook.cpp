@@ -20,6 +20,6 @@ bool hook::init_hook(void* kernel_address)
 	memcpy((void*)((ULONG_PTR)original_fn + sizeof(mov_rax) + sizeof(void*)), &jmp_rax, sizeof(jmp_rax));
 
 	helper::wpm_safe(function, &original_fn, sizeof(original_fn));
-
+	
 	return true;
 }
