@@ -4,5 +4,5 @@
 
 namespace hook
 {
-	bool init_hook(void* hook_address);
+	bool init_hook(void* kernel_address);
 }
