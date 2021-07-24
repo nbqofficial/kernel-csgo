@@ -13,6 +13,6 @@ typedef struct _INFO_STRUCT
 	ULONG process_id;
 	ULONG client_base;
 	ULONG address;
-	ULONG buffer;
+	void* buffer;
 	ULONG size;
 }INFO_STRUCT, * PINFO_STRUCT;
