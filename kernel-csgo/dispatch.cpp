@@ -29,7 +29,7 @@ void dispatch::handler(void* info_struct)
 		PEPROCESS target_process = NULL;
 		if (NT_SUCCESS(PsLookupProcessByProcessId((HANDLE)info->process_id, &target_process)))
 		{
-			memory::write_memory(target_process, &info->buffer, (void*)info->address, info->size);
+			memory::write_memory(target_process, info->buffer, (void*)info->address, info->size);
 		}
 	}
 }

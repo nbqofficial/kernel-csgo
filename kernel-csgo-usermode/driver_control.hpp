@@ -33,7 +33,7 @@ namespace driver_control
 		info.code = CODE_WRITE_MEMORY;
 		info.process_id = process_id;
 		info.address = address;
-		info.buffer = buffer;
+		info.buffer = &buffer;
 		info.size = sizeof(t);
 
 		hook::call_hook(&info);
